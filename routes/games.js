@@ -37,4 +37,11 @@ router.put('/:id', (req, res) => {
     res.send({game})
   })
 })
+
+router.delete('/:id', (req, res) => {
+  Game.findByIdAndRemove(req.params.id)
+    .then(() => {
+      console.log('Successfully Delete ')
+    })
+})
 module.exports = router;
