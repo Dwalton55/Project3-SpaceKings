@@ -28,5 +28,16 @@ router.post('/', (req, res) => {
       })
   })
 
+  router.get('/:id', (req, res) => {
+    const gameid = req.params.gameId
+    const charId = req.params.id
+    Game.findById(gameid)
+    .then((game) => {
+      const character = game.characters.id(charId)
+      res.send({
+        character,
+      })
+    })
+  })
 
 module.exports = router;
