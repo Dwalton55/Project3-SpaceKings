@@ -17,14 +17,14 @@ router.get('/', (req, res, next) => {
 
 // new
 router.post('/', (req, res) => {
-    const gameplan = new Gameplan(req.body)
-    User.findById(req.params.id)
-      .then((userID) => {
-        userID.gamePlans.push(gameplan)
-        return userID.save()
+    const character = new Character(req.body)
+    Game.findById(req.params.gameId)
+      .then((game) => {
+        game.characters.push(character)
+        return game.save()
       })
       .then(() => {
-        res.redirect(`/user/${req.params.id}/gameplans`)
+        res.send(character)
       })
   })
 
