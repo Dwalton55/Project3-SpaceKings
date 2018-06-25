@@ -22,4 +22,12 @@ router.post('/', (req, res) => {
   })
 })
 
+//show
+router.get('/:id', (req, res) => {
+  Game
+    .findById(req.params.id)
+    .then((game) => {
+      res.send({ game })
+    })
+})
 module.exports = router;
