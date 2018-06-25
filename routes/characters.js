@@ -28,16 +28,21 @@ router.post('/', (req, res) => {
       })
   })
 
+  //show
   router.get('/:id', (req, res) => {
-    const gameid = req.params.gameId
-    const charId = req.params.id
-    Game.findById(gameid)
+    Game.findById(req.params.gameId)
     .then((game) => {
-      const character = game.characters.id(charId)
       res.send({
-        character,
+        character: game.characters.id(req.params.id)
       })
     })
   })
 
+
+  //update
+  router.put('/:id', (req, res) => {
+    Game.findByIdAndUpdate(req.params.id, req.body, { new: true }).then((game) => {
+      res.send({game})
+    })
+  })
 module.exports = router;
