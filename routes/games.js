@@ -30,4 +30,11 @@ router.get('/:id', (req, res) => {
       res.send({ game })
     })
 })
+
+//Update
+router.put('/:id', (req, res) => {
+  Game.findByIdAndUpdate(req.params.id, req.body, { new: true }).then((game) => {
+    res.send({game})
+  })
+})
 module.exports = router;
