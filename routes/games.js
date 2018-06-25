@@ -13,4 +13,13 @@ router.get('/', function (req, res) {
   })
 })
 
+//new
+router.post('/', (req, res) => {
+  const newGame = new Game(req.body)
+  newGame.save()
+  .then((game)=>{
+    res.send(game)
+  })
+})
+
 module.exports = router;
