@@ -50,7 +50,7 @@ class App extends Component {
           {/* exact path requries an exact path to reach. component is the basic item to say which page should be rendered. using render instead of component means that props are to be passed down. */}
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/games" render={AllGamesWrapper} />
-          <Route exact path="/games/:gameid" component={ShowGame} />
+          <Route exact path="/games/:gameId" component={ShowGame} />
         </Switch>
       </div>
     </Router>
