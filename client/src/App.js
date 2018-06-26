@@ -22,12 +22,6 @@ class App extends Component {
 
   componentDidMount () {
     this.getGames()
-   
-    // axios.get('/api/games').then((res) => {
-    //   this.setState({ games: res.data.games })
-    // }).catch((err) => {
-    //   console.error(err)
-    // })
   }
 
 
