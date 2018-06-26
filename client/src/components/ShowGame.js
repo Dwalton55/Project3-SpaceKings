@@ -55,6 +55,7 @@ class ShowGame extends Component {
     render() {
         return (
             <div>
+                <form id="UpdateForm">
                  <input
                   type="text"
                   name="title"
@@ -62,8 +63,15 @@ class ShowGame extends Component {
                   onChange={(event) => this.handleChange(event, this.state.game)}
                   onBlur={() => this.updateGame(this.state.game)}
                 />
-
-                <p>{this.state.game.description}</p>
+                <br/>
+                <textarea 
+                name="description"  
+                cols="50" rows="8" 
+                value={this.state.game.description} 
+                onChange= {(event) => this.handleChange(event, this.state.game)}
+                onBlur={() => this.updateGame(this.state.game)}></textarea>
+            </form>
+                
 
                 {this.state.characters.map((character) => {
                     return (
