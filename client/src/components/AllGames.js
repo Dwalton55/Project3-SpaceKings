@@ -6,6 +6,7 @@ class AllGames extends Component {
     state = {
         title: '',
         description: '',
+        newForm: false
     }
 
     handleChange = (event) => {
@@ -17,17 +18,47 @@ class AllGames extends Component {
         this.setState(newState)
     }
 
-    handleSubmit = (event)=>{
+    handleSubmit = (event) => {
         event.preventDefault()
         axios.post('/api/games', this.state).then((res) => {
-        this.props.history.push(`/games/`)
-        this.props.getGames()
-    })
-}
+            this.props.history.push(`/games/`)
+            this.props.getGames()
+        })
+    }
 
+    showForm = () => {
+        this.state.newForm ? this.setState({ newForm: false }) : this.setState({ newForm: true })
+        console.log(this.state.newForm)
+    }
     render() {
         return (
             <div> {/* wrapper start*/}
+
+             <button onClick={this.showForm}>Start a new Story</button>
+                {this.state.newForm
+                    ?
+                <div>
+                    {/* creates a form and says that once submitted handleSubmit should run */}
+                    <form onSubmit={this.handleSubmit} id="newgame">
+                        <input
+                            placeholder="Title"
+                            type="text"
+                            name="title"
+                            // sets value to be the State user name.
+                            value={this.state.title}
+                            // when value is changed it runs handle change
+                            onChange={this.handleChange}
+                        />
+                        {/* activates the handle Submit */}
+                        <button type="submit">Submit</button>
+                    </form>
+
+                    <textarea rows="7" cols="50" name="description" placeholder="description here" onChange={this.handleChange} value={this.state.description}></textarea>
+                </div>
+                    : null}
+                    <br/>
+                    <br/>
+                    <br/>
                 {this.props.games.map((game) => { /* map start*/
                     return (
                         <div key={game._id}>
@@ -36,27 +67,6 @@ class AllGames extends Component {
                         </div>
                     )
                 })} {/* map end*/}
-
-                <h3>Create a User</h3>
-                {/* creates a form and says that once submitted handleSubmit should run */}
-                <form onSubmit={this.handleSubmit} id="newgame">
-                    <input
-                        placeholder="Title"
-                        type="text"
-                        name="title"
-                        // sets value to be the State user name.
-                        value={this.state.title}
-                        // when value is changed it runs handle change
-                        onChange={this.handleChange}
-                    />
-                    {/* activates the handle Submit */}
-                    <button type="submit">Submit</button>
-                </form>
-
-                <textarea rows="7" cols="50" name="description" placeholder="description here" onChange={this.handleChange} value={this.state.description}></textarea>
-
-
-
                 {/* wrapper end*/}
             </div>
         );
