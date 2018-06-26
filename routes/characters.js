@@ -40,9 +40,28 @@ router.post('/', (req, res) => {
 
 
   //update
-  router.put('/:id', (req, res) => {
-    Game.findByIdAndUpdate(req.params.id, req.body, { new: true }).then((game) => {
-      res.send({game})
+  router.patch('/:id', async (req, res) => {
+    const game = await Game.findById(req.params.gameId)
+    const charId = req.params.id
+    const charToEdit = game.characters.id(charId)
+    charToEdit.name = req.body.name
+    charToEdit.concept = req.body.concept
+    const savedGame = await game.save()
+    res.send({
+      game: savedGame
     })
   })
 module.exports = router;
+
+// char.name = update.name
+//         char.concept = update.concept
+//         char.brawn = update.brawn
+//         char.intelligence = update.intelligence
+//         char.charm = update.charm
+//         char.agility = update.agility
+//         char.wit = update.wit
+//         char.presence = update.presence
+//         char.health = update.health
+//         char.stats.initiative = update.stats.initiative
+//         char.stats.dodge = update.stats.dodge
+//         char.stats.drive = update.stats
