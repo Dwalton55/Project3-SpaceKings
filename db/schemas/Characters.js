@@ -11,17 +11,9 @@ const CharactersSchema = new Schema({
     wit: Number,
     presence: Number,
     health: Number,
-    stats: {
-        initiative: {
-            value: Number,
-        },
-        dodge: {
-            value: Number,
-        },
-        drive: {
-            value: Number,
-        },
-    },
+    initiative: Number,
+    dodge: Number,
+    drive: Number,
     skills: [String],
     ultimates: [String],
 

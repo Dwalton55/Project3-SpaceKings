@@ -25,11 +25,10 @@ const Deon = new Character({
     wit: 1,
     presence: 1,
     health: 1,
-    stats: {
-        initiative: 1,
-        dodge: 1,
-        drive: 1,
-    },
+    initiative: 1,
+    dodge: 1,
+    drive: 1,
+
     skills: ["String", "skills", "together"],
     ultimates: ["String", "ults"],
 
@@ -46,11 +45,9 @@ const Tk = new Character({
     wit: 1,
     presence: 1,
     health: 1,
-    stats: {
-        initiative: 1,
-        dodge: 1,
-        drive: 1,
-    },
+    initiative: 1,
+    dodge: 1,
+    drive: 1,
     skills: ["String", "skills", "together"],
     ultimates: ["String", "ults"],
 
