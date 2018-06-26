@@ -18,45 +18,17 @@ mongoose.connect(process.env.MONGODB_URI)
 const Deon = new Character({
     name: "deon",
     concept: "more stuff",
-    brawn: {
-        name: "Brawn",
-        value: 1
-    },
-    intelligence: {
-        name: "Intelligence",
-        value: 1
-    },
-    charm: {
-        name: "Charm",
-        value: 1
-    },
-    agility: {
-        name: "Agility",
-        value: 1
-    },
-    wit: {
-        name: "Wit",
-        value: 1
-    },
-    presence: {
-        name: "Presence",
-        value: 1
-    },
-
+    brawn: 1,
+    intelligence: 1,
+    charm: 1,
+    agility: 1,
+    wit: 1,
+    presence: 1,
     health: 1,
     stats: {
-        initiative: {
-            name: "Initiative",
-            value: 1
-        },
-        dodge: {
-            name: "Dodge",
-            value: 1
-        },
-        drive: {
-            name: "Drive",
-            value: 1
-        },
+        initiative: 1,
+        dodge: 1,
+        drive: 1,
     },
     skills: ["String", "skills", "together"],
     ultimates: ["String", "ults"],
@@ -67,45 +39,17 @@ const Tk = new Character({
     name: "tk",
     concept: "stuff",
 
-    brawn: {
-        name: "Brawn",
-        value: 1
-    },
-    intelligence: {
-        name: "Intelligence",
-        value: 1
-    },
-    charm: {
-        name: "Charm",
-        value: 1
-    },
-    agility: {
-        name: "Agility",
-        value: 1
-    },
-    wit: {
-        name: "Wit",
-        value: 1
-    },
-    presence: {
-        name: "Presence",
-        value: 1
-    },
-
+    brawn: 1,
+    intelligence: 1,
+    charm: 1,
+    agility: 1,
+    wit: 1,
+    presence: 1,
     health: 1,
     stats: {
-        initiative: {
-            name: "Initiative",
-            value: 1
-        },
-        dodge: {
-            name: "Dodge",
-            value: 1
-        },
-        drive: {
-            name: "Drive",
-            value: 1
-        },
+        initiative: 1,
+        dodge: 1,
+        drive: 1,
     },
     skills: ["String", "skills", "together"],
     ultimates: ["String", "ults"],

@@ -4,24 +4,12 @@ const mongoose = require('mongoose')
 const CharactersSchema = new Schema({
     name: String,
     concept: String,
-    brawn: {
-        value: Number
-    },
-    intelligence: {
-        value: Number
-    },
-    charm: {
-        value: Number
-    },
-    agility: {
-        value: Number
-    },
-    wit: {
-        value: Number
-    },
-    presence: {
-        value: Number
-    },
+    brawn: Number,
+    intelligence: Number,
+    charm: Number,
+    agility: Number,
+    wit: Number,
+    presence: Number,
     health: Number,
     stats: {
         initiative: {
