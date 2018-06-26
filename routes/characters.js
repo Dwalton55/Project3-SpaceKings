@@ -56,14 +56,27 @@ router.patch('/:id', async (req, res) => {
     charToEdit.wit = req.body.wit
     charToEdit.presence = req.body.presence
     charToEdit.health = req.body.health
-    // charToEdit.stats.initiative = req.body.stats.initiative
-    // charToEdit.stats.dodge = req.body.stats.dodge
-    // charToEdit.stats.drive = req.body.stats.drive
+    charToEdit.initiative = req.body.stats.initiative
+    charToEdit.dodge = req.body.dodge
+    charToEdit.drive = req.body.drive
 
     const savedGame = await game.save()
     res.send({
         game: savedGame
     })
 })
+
+//delete
+router.delete('/:id', async (req, res) => {
+    // a promise to find the specific id and use that as user.
+    const game = await Game.findById(req.params.gameId)
+    // this line locates the specific idea by its id number and then removes it.
+    game.characters.id(req.params.id).remove()
+    // this line saves the new user information
+    const savedGame = await game.save()
+    res.send({
+      game: savedGame
+    })
+  })
 module.exports = router;
 
