@@ -18,10 +18,51 @@ class ShowGame extends Component {
         })
     }
 
+  //========================================
+  //           Update Function
+  //========================================
+
+  updateGame = () => {
+    const gameId = this.props.match.params.gameId
+    const gameToUpdate = this.state.game
+    axios.put(`/api/games/${gameId}`, gameToUpdate).then((res) => {
+      
+      this.setState({
+        game: res.data.game
+      })
+    })
+  }
+  //========================================
+  //           Update Function
+  //========================================
+
+  //=========================================
+  //         Handle Change
+  //=========================================
+  handleChange = (event) => {
+    console.log('hello there')
+    const updatedGame = {...this.state.game}
+    const newGame = updatedGame
+    const inputName = event.target.name
+    const userInput = event.target.value
+    updatedGame[ inputName ] = userInput
+    this.setState({ game: updatedGame })
+  }
+  //=========================================
+  //         Handle Change
+  //=========================================
+
     render() {
         return (
             <div>
-                <h1>{this.state.game.title}</h1>
+                 <input
+                  type="text"
+                  name="title"
+                  value={this.state.game.title}
+                  onChange={(event) => this.handleChange(event, this.state.game)}
+                  onBlur={() => this.updateGame(this.state.game)}
+                />
+
                 <p>{this.state.game.description}</p>
 
                 {this.state.characters.map((character) => {
