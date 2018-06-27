@@ -6,7 +6,7 @@ class CharacterSheet extends Component {
 
     state = {
         character: {},
-        edit: false
+        editMode: false
     }
     //========================================
     //  State Area
@@ -48,7 +48,7 @@ class CharacterSheet extends Component {
     //           Update Function
     //========================================
 
-     //=========================================
+    //=========================================
     //         Handle Change
     //=========================================
     handleChange = (event) => {
@@ -63,6 +63,20 @@ class CharacterSheet extends Component {
     //         Handle Change
     //=========================================
 
+    //=========================================
+    //         Edit Toggle
+    //=========================================
+    editMode = () => {
+        this.state.editMode ? this.setState({ editMode: false }) : this.setState({ editMode: true })
+        console.log(this.state.editMode)
+    }
+    //=========================================
+    //         Edit Toggle
+    //=========================================
+
+
+
+
     render() {
         const character = this.state.character
         console.log(character.name)
@@ -76,8 +90,8 @@ class CharacterSheet extends Component {
                         type="text"
                         name="name"
                         value={character.name}
-                    onChange={(event) => this.handleChange(event)}
-                    onBlur={() => this.updateChar(character)}
+                        onChange={(event) => this.handleChange(event)}
+                        onBlur={() => this.updateChar(character)}
                     />
                     <br />
                     <label for="concept">Concept</label>
