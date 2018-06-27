@@ -44,7 +44,7 @@ router.patch('/:id', async (req, res) => {
     const game = await Game.findById(req.params.gameId)
     const charId = req.params.id
     const charToEdit = game.characters.id(charId)
-    
+
     charToEdit.name = req.body.name
     charToEdit.concept = req.body.concept
 
@@ -57,7 +57,7 @@ router.patch('/:id', async (req, res) => {
     charToEdit.wit = req.body.wit
     charToEdit.presence = req.body.presence
     charToEdit.health = req.body.health
-    charToEdit.initiative = req.body.stats.initiative
+    charToEdit.initiative = req.body.initiative
     charToEdit.dodge = req.body.dodge
     charToEdit.drive = req.body.drive
 
