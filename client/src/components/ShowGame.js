@@ -6,13 +6,13 @@ class ShowGame extends Component {
     //==============================
     //          State area
     //==============================
-    
+
     state = {
         game: {},
         characters: [],
         redirect: false
     }
-    getGame = ()=>{
+    getGame = () => {
         const gameId = this.props.match.params.gameId
         axios.get(`/api/games/${gameId}`).then((res) => {
             this.setState({
@@ -36,7 +36,7 @@ class ShowGame extends Component {
     //==============================
     //          State area
     //==============================
-    
+
 
     //========================================
     //           Update Function
@@ -72,7 +72,7 @@ class ShowGame extends Component {
     //=========================================
 
     //=========================================
-    //         Delete area
+    //         Delete area 
     //=========================================
 
     deleteGame = () => {
@@ -80,9 +80,22 @@ class ShowGame extends Component {
         axios.delete(`/api/games/${gameId}/`).then((res) => {
             this.setState({
                 game: res.data.game,
-                 redirect:true
+                redirect: true
             })
             // this.props.history.push('/games')
+        })
+    }
+
+    deleteChar = (charId) => {
+        // match by id
+        const gameId = this.props.match.params.gameId
+        //  delete request renamed res 
+        axios.delete(`/api/games/${gameId}/characters/${charId}`).then((res) => {
+            //save stat
+            this.setState({
+                game: res.data.game,
+                characters: res.data.game.characters
+            })
         })
     }
     //=========================================
@@ -91,7 +104,7 @@ class ShowGame extends Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect push to={`/games`}/>
+            return <Redirect push to={`/games`} />
         }
         return (
             <div>
@@ -119,6 +132,7 @@ class ShowGame extends Component {
                         <div key={character._id}>
                             <h1> <Link to={`/games/${this.state.game._id}/characters/${character._id}`}>{character.name}</Link></h1>
                             <h1>{character.concept}</h1>
+                            <button onClick={() => this.deleteChar(character._id)}>X</button>
                         </div>
                     )
                 })}
