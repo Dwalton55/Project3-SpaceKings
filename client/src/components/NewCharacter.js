@@ -30,12 +30,13 @@ class NewCharacter extends Component {
             this.setState({
                 game: res.data.game
             })
+            console.log(res.data)
         })
     }
 
-    // componentDidMount() {
-    //     this.getGame()
-    // }
+    componentDidMount() {
+        this.getGame()
+    }
 
     //==============================
     //          State area
