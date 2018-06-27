@@ -46,20 +46,6 @@ class NewCharacter extends Component {
     //==============================
     //          Create funtion
     //==============================
-
-
-    // createNewIdea = () => {
-    //     // matchs the user id to the clicked on item?
-    //     const gameId = this.props.match.params.gameId
-    //     // post request to the user id. renames res
-    //     axios.post(`/api/games/${gameId}/characters/`).then((res) => {
-    //         // saves the state
-    //         this.setState({
-    //             game: res.data.game,
-    //             characters: res.data.game.characters
-    //         })
-    //     })
-    // }
     witHolder = 0
     agilityHolder = 0
     presenceholder = 0
@@ -96,14 +82,10 @@ class NewCharacter extends Component {
             newState['drive'] = Number(this.witHolder + this.presenceholder)
             // newState['initiative'] = userInput + this.state.agility
         }
-
-
-        ////dodge
-
         newState[inputToTarget] = userInput
         this.setState(newState)
     }
-
+    
     handleSubmit = (event) => {
         const gameId = this.state.game._id
         event.preventDefault()
@@ -112,7 +94,6 @@ class NewCharacter extends Component {
             this.props.getGames()
         })
     }
-
     //==============================
     //          Create funtion
     //==============================

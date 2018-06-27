@@ -51,11 +51,46 @@ class CharacterSheet extends Component {
     //=========================================
     //         Handle Change
     //=========================================
+
+    witHolder = 0
+    agilityHolder = 0
+    presenceholder = 0
+
     handleChange = (event) => {
         console.log('hello there')
         const updatedCharacter = { ...this.state.character }
         const inputName = event.target.name
         const userInput = event.target.value
+
+
+        if (inputName === 'brawn') {
+            updatedCharacter['health'] = userInput * 3
+        }
+
+        if (inputName === 'presence') {
+            this.presenceholder = Number(userInput)
+            console.log(this.presenceholder)
+            updatedCharacter['initiative'] = Number(this.presenceholder + this.agilityHolder)
+            updatedCharacter['drive'] = Number(this.witHolder + this.presenceholder)
+            // updatedCharacter['initiative'] = userInput + this.state.agility
+        }
+
+        if (inputName === 'agility') {
+            this.agilityHolder = Number(userInput)
+            console.log(this.agilityHolder)
+            updatedCharacter['initiative'] = Number(this.presenceholder + this.agilityHolder)
+            updatedCharacter['dodge'] = Number(this.witHolder + this.agilityHolder)
+            // updatedCharacter['initiative'] = userInput + this.state.agility
+        }
+
+        if (inputName === 'wit') {
+            this.witHolder = Number(userInput)
+            console.log(this.witHolder)
+            updatedCharacter['dodge'] = Number(this.witHolder + this.agilityHolder)
+            updatedCharacter['drive'] = Number(this.witHolder + this.presenceholder)
+            // updatedCharacter['initiative'] = userInput + this.state.agility
+        }
+
         updatedCharacter[inputName] = userInput
         this.setState({ character: updatedCharacter })
     }
