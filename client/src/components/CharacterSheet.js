@@ -41,6 +41,7 @@ class CharacterSheet extends Component {
             this.setState({
                 character: res.data.character
             })
+            console.log(res.data)
         })
     }
     //========================================
@@ -85,8 +86,8 @@ class CharacterSheet extends Component {
                         type="text"
                         name="concept"
                         value={character.concept}
-                    // onChange={(event) => this.handleChange(event, this.state.game)}
-                    // onBlur={() => this.updateChar(this.state.game)}
+                        onChange={(event) => this.handleChange(event)}
+                        onBlur={() => this.updateChar(character)}
                     />
                     <br />
                     <label for="brawn">Brawn</label>
@@ -95,8 +96,8 @@ class CharacterSheet extends Component {
                         type="text"
                         name="brawn"
                         value={character.brawn}
-                    // onChange={(event) => this.handleChange(event, this.state.game)}
-                    // onBlur={() => this.updateChar(this.state.game)}
+                        onChange={(event) => this.handleChange(event)}
+                        onBlur={() => this.updateChar(character)}
                     />
                     <br />
                     <label for="intelligence">Intelligence</label>
@@ -105,8 +106,8 @@ class CharacterSheet extends Component {
                         type="text"
                         name="intelligence"
                         value={character.intelligence}
-                    // onChange={(event) => this.handleChange(event, this.state.game)}
-                    // onBlur={() => this.updateChar(this.state.game)}
+                        onChange={(event) => this.handleChange(event)}
+                        onBlur={() => this.updateChar(character)}
                     />
                     <br />
                     <label for="charm">Charm</label>
@@ -115,8 +116,8 @@ class CharacterSheet extends Component {
                         type="text"
                         name="charm"
                         value={character.charm}
-                    // onChange={(event) => this.handleChange(event, this.state.game)}
-                    // onBlur={() => this.updateChar(this.state.game)}
+                        onChange={(event) => this.handleChange(event)}
+                        onBlur={() => this.updateChar(character)}
                     />
                     <br />
                     <label for="agility">Agility</label>
@@ -125,8 +126,8 @@ class CharacterSheet extends Component {
                         type="text"
                         name="agility"
                         value={character.agility}
-                    // onChange={(event) => this.handleChange(event, this.state.game)}
-                    // onBlur={() => this.updateChar(this.state.game)}
+                        onChange={(event) => this.handleChange(event)}
+                        onBlur={() => this.updateChar(character)}
                     />
                     <br />
                     <label for="wit">Wit</label>
@@ -135,8 +136,8 @@ class CharacterSheet extends Component {
                         type="text"
                         name="wit"
                         value={character.wit}
-                    // onChange={(event) => this.handleChange(event, this.state.game)}
-                    // onBlur={() => this.updateChar(this.state.game)}
+                        onChange={(event) => this.handleChange(event)}
+                        onBlur={() => this.updateChar(character)}
                     />
                     <br />
                     <label for="presence">Presence</label>
@@ -145,8 +146,8 @@ class CharacterSheet extends Component {
                         type="text"
                         name="presence"
                         value={character.presence}
-                    // onChange={(event) => this.handleChange(event, this.state.game)}
-                    // onBlur={() => this.updateChar(this.state.game)}
+                        onChange={(event) => this.handleChange(event)}
+                        onBlur={() => this.updateChar(character)}
                     />
                     <br />
                     <label for="health">Health</label>
@@ -155,8 +156,8 @@ class CharacterSheet extends Component {
                         type="text"
                         name="health"
                         value={character.health}
-                    // onChange={(event) => this.handleChange(event, this.state.game)}
-                    // onBlur={() => this.updateChar(this.state.game)}
+                        onChange={(event) => this.handleChange(event)}
+                        onBlur={() => this.updateChar(character)}
                     />
                     <br />
                     <label for="initiative">Initiative</label>
@@ -165,8 +166,8 @@ class CharacterSheet extends Component {
                         type="text"
                         name="initiative"
                         value={character.initiative}
-                    // onChange={(event) => this.handleChange(event, this.state.game)}
-                    // onBlur={() => this.updateChar(this.state.game)}
+                        onChange={(event) => this.handleChange(event)}
+                        onBlur={() => this.updateChar(character)}
                     />
                     <br />
                     <label for="dodge">Dodge</label>
@@ -175,8 +176,8 @@ class CharacterSheet extends Component {
                         type="text"
                         name="dodge"
                         value={character.dodge}
-                    // onChange={(event) => this.handleChange(event, this.state.game)}
-                    // onBlur={() => this.updateChar(this.state.game)}
+                        onChange={(event) => this.handleChange(event)}
+                        onBlur={() => this.updateChar(character)}
                     />
                     <br />
                     <label for="drive">Drive</label>
@@ -185,8 +186,8 @@ class CharacterSheet extends Component {
                         type="text"
                         name="drive"
                         value={character.drive}
-                    // onChange={(event) => this.handleChange(event, this.state.game)}
-                    // onBlur={() => this.updateChar(this.state.game)}
+                        onChange={(event) => this.handleChange(event)}
+                        onBlur={() => this.updateChar(character)}
                     />
                 </form>
             </div>

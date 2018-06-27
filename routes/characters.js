@@ -63,7 +63,7 @@ router.patch('/:id', async (req, res) => {
 
     const savedGame = await game.save()
     res.send({
-        game: savedGame
+        character: charToEdit
     })
 })
 
