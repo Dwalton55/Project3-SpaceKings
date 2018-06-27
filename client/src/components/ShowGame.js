@@ -132,11 +132,11 @@ class ShowGame extends Component {
                         <div key={character._id}>
                             <h1> <Link to={`/games/${this.state.game._id}/characters/${character._id}`}>{character.name}</Link></h1>
                             <h1>{character.concept}</h1>
-                            <button onClick={() => this.deleteChar(character._id)}>X</button>
+                            <button onClick={() => this.deleteChar(character._id)}>Delete this character</button>
                         </div>
                     )
                 })}
-
+                    <Link to={`/games/${this.state.game._id}/new`}>Create a new character</Link>
             </div>
         );
     }

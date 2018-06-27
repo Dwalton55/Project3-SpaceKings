@@ -7,6 +7,7 @@ import LandingPage from './components/LandingPage'
 import AllGames from './components/AllGames'
 import ShowGame from './components/ShowGame'
 import CharacterSheet from './components/CharacterSheet'
+import NewCharacter from './components/NewCharacter'
 
 class App extends Component {
   state = {
@@ -47,6 +48,7 @@ class App extends Component {
           <Route exact path="/games" render={AllGamesWrapper} />
           <Route exact path="/games/:gameId" component={ShowGame} />
           <Route exact path="/games/:gameId/characters/:charId" component={CharacterSheet} />
+          <Route exact path="/games/:gameId/new" component={NewCharacter} />
         </Switch>
       </div>
     </Router>
