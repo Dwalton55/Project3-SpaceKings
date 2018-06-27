@@ -60,28 +60,45 @@ class NewCharacter extends Component {
     //         })
     //     })
     // }
-
+    witHolder = 0
+    agilityHolder = 0
+    presenceholder = 0
     handleChange = (event) => {
         const inputToTarget = event.target.name
         const userInput = event.target.value
         const newState = { ...this.state }
 
-        const initiative
+
         if (inputToTarget === 'brawn') {
             newState['health'] = userInput * 3
         }
 
         if (inputToTarget === 'presence') {
-
-            newState['initiative'] = (userInput + this.state.agility)
+            this.presenceholder = Number(userInput)
+            console.log(this.presenceholder)
+            newState['initiative'] = Number(this.presenceholder + this.agilityHolder)
+            newState['drive'] = Number(this.witHolder + this.presenceholder)
+            // newState['initiative'] = userInput + this.state.agility
         }
 
         if (inputToTarget === 'agility') {
-            newState['initiative'] = (userInput + this.state.presence)
+            this.agilityHolder = Number(userInput)
+            console.log(this.agilityHolder)
+            newState['initiative'] = Number(this.presenceholder + this.agilityHolder)
+            newState['dodge'] = Number(this.witHolder + this.agilityHolder)
+            // newState['initiative'] = userInput + this.state.agility
         }
-        if (inputToTarget === 'brawn') {
-            newState['health'] = userInput * 3
+
+        if (inputToTarget === 'wit') {
+            this.witHolder = Number(userInput)
+            console.log(this.witHolder)
+            newState['dodge'] = Number(this.witHolder + this.agilityHolder)
+            newState['drive'] = Number(this.witHolder + this.presenceholder)
+            // newState['initiative'] = userInput + this.state.agility
         }
+
+
+        ////dodge
 
         newState[inputToTarget] = userInput
         this.setState(newState)
@@ -126,7 +143,7 @@ class NewCharacter extends Component {
                     <label for="brawn">Brawn</label>
                     <input
                         id="brawn"
-                        type="text"
+                        type="number"
                         name="brawn"
                         value={this.state.brawn}
                         onChange={(event) => this.handleChange(event)}
@@ -135,7 +152,7 @@ class NewCharacter extends Component {
                     <label for="intelligence">Intelligence</label>
                     <input
                         id="intelligence"
-                        type="text"
+                        type="number"
                         name="intelligence"
                         value={this.state.intelligence}
                         onChange={(event) => this.handleChange(event)}
@@ -144,7 +161,7 @@ class NewCharacter extends Component {
                     <label for="charm">Charm</label>
                     <input
                         id="charm"
-                        type="text"
+                        type="number"
                         name="charm"
                         value={this.state.charm}
                         onChange={(event) => this.handleChange(event)}
@@ -153,7 +170,7 @@ class NewCharacter extends Component {
                     <label for="agility">Agility</label>
                     <input
                         id="agility"
-                        type="text"
+                        type="number"
                         name="agility"
                         value={this.state.agility}
                         onChange={(event) => this.handleChange(event)}
@@ -162,7 +179,7 @@ class NewCharacter extends Component {
                     <label for="wit">Wit</label>
                     <input
                         id="wit"
-                        type="text"
+                        type="number"
                         name="wit"
                         value={this.state.wit}
                         onChange={(event) => this.handleChange(event)}
@@ -171,7 +188,7 @@ class NewCharacter extends Component {
                     <label for="presence">Presence</label>
                     <input
                         id="presence"
-                        type="text"
+                        type="number"
                         name="presence"
                         value={this.state.presence}
                         onChange={(event) => this.handleChange(event)}
@@ -181,7 +198,7 @@ class NewCharacter extends Component {
                     <input
                         disabled
                         id="health"
-                        type="text"
+                        type="number"
                         name="health"
                         value={this.state.health}
                         onChange={(event) => this.handleChange(event)}
@@ -191,7 +208,7 @@ class NewCharacter extends Component {
                     <input
                         disabled
                         id="initiative"
-                        type="text"
+                        type="number"
                         name="initiative"
                         value={this.state.initiative}
                         onChange={(event) => this.handleChange(event)}
@@ -201,7 +218,7 @@ class NewCharacter extends Component {
                     <input
                         disabled
                         id="dodge"
-                        type="text"
+                        type="number"
                         name="dodge"
                         value={this.state.dodge}
                         onChange={(event) => this.handleChange(event)}
@@ -211,7 +228,7 @@ class NewCharacter extends Component {
                     <input
                         disabled
                         id="drive"
-                        type="text"
+                        type="number"
                         name="drive"
                         value={this.state.drive}
                         onChange={(event) => this.handleChange(event)}
