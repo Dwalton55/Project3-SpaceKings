@@ -64,8 +64,25 @@ class NewCharacter extends Component {
     handleChange = (event) => {
         const inputToTarget = event.target.name
         const userInput = event.target.value
-
         const newState = { ...this.state }
+
+        const initiative
+        if (inputToTarget === 'brawn') {
+            newState['health'] = userInput * 3
+        }
+
+        if (inputToTarget === 'presence') {
+
+            newState['initiative'] = (userInput + this.state.agility)
+        }
+
+        if (inputToTarget === 'agility') {
+            newState['initiative'] = (userInput + this.state.presence)
+        }
+        if (inputToTarget === 'brawn') {
+            newState['health'] = userInput * 3
+        }
+
         newState[inputToTarget] = userInput
         this.setState(newState)
     }
@@ -162,6 +179,7 @@ class NewCharacter extends Component {
                     <br />
                     <label for="health">Health</label>
                     <input
+                        disabled
                         id="health"
                         type="text"
                         name="health"
@@ -171,6 +189,7 @@ class NewCharacter extends Component {
                     <br />
                     <label for="initiative">Initiative</label>
                     <input
+                        disabled
                         id="initiative"
                         type="text"
                         name="initiative"
@@ -180,6 +199,7 @@ class NewCharacter extends Component {
                     <br />
                     <label for="dodge">Dodge</label>
                     <input
+                        disabled
                         id="dodge"
                         type="text"
                         name="dodge"
@@ -189,13 +209,14 @@ class NewCharacter extends Component {
                     <br />
                     <label for="drive">Drive</label>
                     <input
+                        disabled
                         id="drive"
                         type="text"
                         name="drive"
                         value={this.state.drive}
                         onChange={(event) => this.handleChange(event)}
                     />
-                    <br/>
+                    <br />
                     <button type="submit">Submit</button>
                 </form>
             </div>
