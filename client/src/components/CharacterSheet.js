@@ -83,6 +83,10 @@ class CharacterSheet extends Component {
         return (
             <div>
                 working in CharacterSheet
+
+                <button onClick={this.editMode}>Start a new Story</button>
+                {this.state.editMode
+                    ?
                 <form action="">
                     <label for="name">Character Name</label>
                     <input
@@ -204,6 +208,22 @@ class CharacterSheet extends Component {
                         onBlur={() => this.updateChar(character)}
                     />
                 </form>
+                : 
+                <div>
+                    <h1>{character.name}</h1>
+                    <h1>{character.concept}</h1>
+                    <h1>{character.brawn}</h1>
+                    <h1>{character.intelligence}</h1>
+                    <h1>{character.charm}</h1>
+                    <h1>{character.agility}</h1>
+                    <h1>{character.wit}</h1>
+                    <h1>{character.presence}</h1>
+                    <h1>{character.health}</h1>
+                    <h1>{character.initiative}</h1>
+                    <h1>{character.dodge}</h1>
+                    <h1>{character.drive}</h1>
+                </div>
+                }
             </div>
         );
     }
