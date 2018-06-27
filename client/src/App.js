@@ -5,7 +5,8 @@ import axios from 'axios'
 import './App.css'
 import LandingPage from './components/LandingPage'
 import AllGames from './components/AllGames'
-import ShowGame from './components/ShowGame';
+import ShowGame from './components/ShowGame'
+import CharacterSheet from './components/CharacterSheet'
 
 class App extends Component {
   state = {
@@ -45,6 +46,7 @@ class App extends Component {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/games" render={AllGamesWrapper} />
           <Route exact path="/games/:gameId" component={ShowGame} />
+          <Route exact path="/games/:gameId/characters/:charId" component={CharacterSheet} />
         </Switch>
       </div>
     </Router>

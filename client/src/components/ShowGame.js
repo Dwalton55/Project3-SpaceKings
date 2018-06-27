@@ -3,6 +3,10 @@ import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 class ShowGame extends Component {
+    //==============================
+    //          State area
+    //==============================
+    
     state = {
         game: {},
         characters: [],
@@ -28,6 +32,11 @@ class ShowGame extends Component {
         //     })
         // })
     }
+
+    //==============================
+    //          State area
+    //==============================
+    
 
     //========================================
     //           Update Function
