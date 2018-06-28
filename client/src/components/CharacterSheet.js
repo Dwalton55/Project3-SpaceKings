@@ -206,7 +206,6 @@ class CharacterSheet extends Component {
 
         updatedCharacter[inputName] = userInput
         this.setState({ character: updatedCharacter })
-        //for testing purposes
     }
     //=========================================
     //         Handle Change
@@ -248,7 +247,7 @@ class CharacterSheet extends Component {
                                         onBlur={() => this.updateChar(character)}
                                     />
                                     <br />
-                                    <label for="concept">test</label>
+                                    <label for="concept">Concept</label>
                                     <input
                                         id="concept"
                                         type="text"
