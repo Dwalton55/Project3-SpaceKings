@@ -44,6 +44,7 @@ const CharacterForm = styled.div`
 display:grid;
 grid-template-columns: 1fr 1fr;
 grid-template-rows: 2.5rem  2.5rem  2.5rem;
+justify-items: center;
 }
 
 .aHolder{
@@ -53,15 +54,23 @@ height: 50px;
 
   .health{
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-column: 1/3;
+      grid-template-rows:1fr 1fr;
       grid-gap: 10px;
-      justify-content: space-between;
   }
 
-  .stats{
+  .healthWrapper{
+display: grid;
+grid-template-columns: 1fr  1fr;
+justify-content: space-around;
+justify-items: center;
+
+  }
+
+
+  .statWrapper{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
 
   }
 
@@ -88,6 +97,22 @@ height: 50px;
   textarea{
       margin-bottom: 50px;
   }
+
+.skillsHeader{
+    display:grid;
+    justify-items:center;
+}
+  .skills{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      justify-items: center;
+  }
+
+  .practices{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+  }
+  
 `
 
 class CharacterSheet extends Component {
@@ -350,45 +375,82 @@ class CharacterSheet extends Component {
                                 <div className="test">
                                     <div className="attributes">
                                         <h1>Attributes:</h1>
-                                        <br/>
-                                        
+
                                         <div className="aWrapper">
-                                        <div className="aHolder"><h3>Brawn: {character.brawn}</h3></div>
-                                        <div className="aHolder"><h3>Intelligence: {character.intelligence}</h3></div>
-                                        <div className="aHolder"><h3>Charm: {character.charm}</h3></div>
-                                        <div className="aHolder"><h3>Agility: {character.agility}</h3></div>
-                                        <div className="aHolder"><h3>Wit: {character.wit}</h3></div>
-                                        <div className="aHolder"><h3>Presence: {character.presence}</h3></div>
+                                            <div className="aHolder"><h3>Brawn: {character.brawn}</h3></div>
+                                            <div className="aHolder"><h3>Intelligence: {character.intelligence}</h3></div>
+                                            <div className="aHolder"><h3>Charm: {character.charm}</h3></div>
+                                            <div className="aHolder"><h3>Agility: {character.agility}</h3></div>
+                                            <div className="aHolder"><h3>Wit: {character.wit}</h3></div>
+                                            <div className="aHolder"><h3>Presence: {character.presence}</h3></div>
                                         </div>
-                                        
+
 
                                         <div className="health">
-                                            <div>
-                                                <h2>Health: {character.health}</h2>
-                                            </div>
-                                            <div>
-                                                <h4>Current: 4</h4>
-                                            </div>
-                                            <div>
-                                                <h4>Max: 4</h4>
+                                            <div className="healthWrapper">
+                                                <div>
+                                                    <h3>Max-Health: {character.health}</h3>
+                                                </div>
+                                                <div>
+                                                    <h3>Current: 4</h3>
+                                                </div>
                                             </div>
 
-                                            <h3>Initiative: {character.initiative}</h3>
-                                            <h3>Dodge: {character.dodge}</h3>
-                                            <h3>Drive: {character.drive}</h3>
+                                            <div className="statWrapper">
+                                                <div>
+                                                    <h3>Initiative: {character.initiative}</h3>
+
+                                                </div>
+                                                <div>
+                                                    <h3>Dodge: {character.dodge}</h3>
+
+                                                </div>
+                                                <div>
+                                                    <h3>Drive: {character.drive}</h3>
+                                                </div>
+                                            </div>
 
                                         </div>
 
-                                        <div className="skills">
+                                        <div className="skillWrapper">
+                                            <div className="skillsHeader"><h1>Skills</h1></div>
+                                            <div className="skills">
+                                                <div>
+                                                    <div><h1>practices</h1></div>
+                                                    <div className="practices">
+                                                        <div>
+                                                            <div> <h3>1:skill</h3></div>
+                                                            <br />
+                                                            <div><h3>2:skill</h3></div>
+                                                            <br />
+                                                            <div><h3>3:skill</h3></div>
+                                                        </div>
 
-                                            <div>practices</div>
-                                            <div>Masteries</div>
+                                                        <div>
+                                                            <div><h3>4:skill</h3></div>
+                                                            <br />
+                                                            <div><h3>5:skill</h3></div>
+                                                            <br />
+                                                            <div><h3>6:skill</h3></div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div><h1>Masteries</h1></div>
+                                                    <br />
+                                                    <div> <h3>ms name</h3></div>
+                                                    <br />
+                                                    <div><h3>ms name</h3></div>
+                                                    <br />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div className="notes">
                                         <h1>notes</h1>
-                                        <textarea name="notepad" id="" cols="50" rows="10"></textarea>
+                                        <textarea name="notepad" id="" cols="50" rows="15"></textarea>
 
                                         <div className="notes">
                                             <h1>ults</h1>
