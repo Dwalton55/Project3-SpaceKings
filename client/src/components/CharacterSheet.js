@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import styled from 'styled-components'
 
+const CharacterForm = styled.div`
+  .wrapper{
+      display: flex;
+      justify-content: center;
+      margin: 200px;
+      color: red;
+  }
+
+  button{
+      display: inline;
+  }
+  
+`
 
 class CharacterSheet extends Component {
 
@@ -117,6 +131,8 @@ class CharacterSheet extends Component {
         console.log(character.name)
         return (
             <div>
+            <CharacterForm>
+            <div className="wrapper">
                 working in CharacterSheet
 
                 <button onClick={this.editMode}>Start a new Story</button>
@@ -142,7 +158,9 @@ class CharacterSheet extends Component {
                         onChange={(event) => this.handleChange(event)}
                         onBlur={() => this.updateChar(character)}
                     />
-                    <br />
+                    <br/>
+
+                    <hr/>
                     <label for="brawn">Brawn</label>
                     <input
                         id="brawn"
@@ -205,6 +223,7 @@ class CharacterSheet extends Component {
                     <br />
                     <label for="health">Health</label>
                     <input
+                        disabled
                         id="health"
                         type="text"
                         name="health"
@@ -215,6 +234,7 @@ class CharacterSheet extends Component {
                     <br />
                     <label for="initiative">Initiative</label>
                     <input
+                        disabled
                         id="initiative"
                         type="text"
                         name="initiative"
@@ -225,6 +245,7 @@ class CharacterSheet extends Component {
                     <br />
                     <label for="dodge">Dodge</label>
                     <input
+                        disabled
                         id="dodge"
                         type="text"
                         name="dodge"
@@ -235,6 +256,7 @@ class CharacterSheet extends Component {
                     <br />
                     <label for="drive">Drive</label>
                     <input
+                        disabled
                         id="drive"
                         type="text"
                         name="drive"
@@ -245,20 +267,24 @@ class CharacterSheet extends Component {
                 </form>
                 : 
                 <div>
-                    <h1>{character.name}</h1>
-                    <h1>{character.concept}</h1>
-                    <h1>{character.brawn}</h1>
-                    <h1>{character.intelligence}</h1>
-                    <h1>{character.charm}</h1>
-                    <h1>{character.agility}</h1>
-                    <h1>{character.wit}</h1>
-                    <h1>{character.presence}</h1>
-                    <h1>{character.health}</h1>
-                    <h1>{character.initiative}</h1>
-                    <h1>{character.dodge}</h1>
-                    <h1>{character.drive}</h1>
+                    <h1>Character: {character.name}</h1>
+                    <h1>Player: place holder</h1>
+                    <h1>Concept: {character.concept}</h1>
+                    <hr/>
+                    <h1>Brawn: {character.brawn}</h1>
+                    <h1>Intelligence: {character.intelligence}</h1>
+                    <h1>Charm: {character.charm}</h1>
+                    <h1>Agility: {character.agility}</h1>
+                    <h1>Wit: {character.wit}</h1>
+                    <h1>Presence: {character.presence}</h1>
+                    <h1>Health: {character.health}</h1>
+                    <h1>Initiative: {character.initiative}</h1>
+                    <h1>Dodge: {character.dodge}</h1>
+                    <h1>Drive: {character.drive}</h1>
                 </div>
                 }
+            </div>
+            </CharacterForm>
             </div>
         );
     }

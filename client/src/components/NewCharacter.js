@@ -9,16 +9,16 @@ class NewCharacter extends Component {
         game: {},
         name: String,
         concept: String,
-        brawn: Number,
-        intelligence: Number,
-        charm: Number,
-        agility: Number,
-        wit: Number,
-        presence: Number,
-        health: Number,
-        initiative: Number,
-        dodge: Number,
-        drive: Number,
+        brawn: 1,
+        intelligence: 1,
+        charm: 1,
+        agility: 1,
+        wit: 1,
+        presence: 1,
+        health: 1,
+        initiative: 1,
+        dodge: 1,
+        drive: 1,
 
         // pass down an individual game
         //create a new character
@@ -85,7 +85,7 @@ class NewCharacter extends Component {
         newState[inputToTarget] = userInput
         this.setState(newState)
     }
-    
+
     handleSubmit = (event) => {
         const gameId = this.state.game._id
         event.preventDefault()
@@ -103,7 +103,7 @@ class NewCharacter extends Component {
             <div>
                 <h1>Working in NewCharacter</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <label for="name">Character Name</label>
+                    <label for="name">Character Name:</label>
                     <input
                         id="name"
                         type="text"
@@ -112,7 +112,7 @@ class NewCharacter extends Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br />
-                    <label for="concept">Concept</label>
+                    <label for="concept">Concept:</label>
                     <input
                         id="concept"
                         type="text"
@@ -121,7 +121,7 @@ class NewCharacter extends Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br />
-                    <label for="brawn">Brawn</label>
+                    <label for="brawn">Brawn:</label>
                     <input
                         id="brawn"
                         type="number"
@@ -130,7 +130,7 @@ class NewCharacter extends Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br />
-                    <label for="intelligence">Intelligence</label>
+                    <label for="intelligence">Intelligence:</label>
                     <input
                         id="intelligence"
                         type="number"
@@ -139,7 +139,7 @@ class NewCharacter extends Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br />
-                    <label for="charm">Charm</label>
+                    <label for="charm">Charm:</label>
                     <input
                         id="charm"
                         type="number"
@@ -148,7 +148,7 @@ class NewCharacter extends Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br />
-                    <label for="agility">Agility</label>
+                    <label for="agility">Agility:</label>
                     <input
                         id="agility"
                         type="number"
@@ -157,7 +157,7 @@ class NewCharacter extends Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br />
-                    <label for="wit">Wit</label>
+                    <label for="wit">Wit:</label>
                     <input
                         id="wit"
                         type="number"
@@ -166,7 +166,7 @@ class NewCharacter extends Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br />
-                    <label for="presence">Presence</label>
+                    <label for="presence">Presence:</label>
                     <input
                         id="presence"
                         type="number"
@@ -175,7 +175,7 @@ class NewCharacter extends Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br />
-                    <label for="health">Health</label>
+                    <label for="health">Health:</label>
                     <input
                         disabled
                         id="health"
@@ -185,7 +185,7 @@ class NewCharacter extends Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br />
-                    <label for="initiative">Initiative</label>
+                    <label for="initiative">Initiative:</label>
                     <input
                         disabled
                         id="initiative"
@@ -195,7 +195,7 @@ class NewCharacter extends Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br />
-                    <label for="dodge">Dodge</label>
+                    <label for="dodge">Dodge:</label>
                     <input
                         disabled
                         id="dodge"
@@ -205,7 +205,7 @@ class NewCharacter extends Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br />
-                    <label for="drive">Drive</label>
+                    <label for="drive">Drive:</label>
                     <input
                         disabled
                         id="drive"
