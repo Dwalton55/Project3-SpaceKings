@@ -247,7 +247,7 @@ class CharacterSheet extends Component {
                                         onBlur={() => this.updateChar(character)}
                                     />
                                     <br />
-                                    <label for="concept">Concept</label>
+                                    <label for="concept">test</label>
                                     <input
                                         id="concept"
                                         type="text"
