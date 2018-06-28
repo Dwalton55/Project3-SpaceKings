@@ -206,6 +206,7 @@ class CharacterSheet extends Component {
 
         updatedCharacter[inputName] = userInput
         this.setState({ character: updatedCharacter })
+        //for testing purposes
     }
     //=========================================
     //         Handle Change
