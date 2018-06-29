@@ -169,12 +169,14 @@ const Tk = new Character({
         mastery: false,
         neither: true
     },
+
     biology: {
         name: "Biology",
         practice: false,
         mastery: false,
         neither: true
     },
+    
     computers: {
         name: "Computers",
         practice: false,
