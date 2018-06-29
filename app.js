@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const gamesRouter = require('./routes/games')
 const charactersRouter = require('./routes/characters')
+// const Skill =require('./routes/Skills')
 
 mongoose.connect(process.env.MONGODB_URI)
 

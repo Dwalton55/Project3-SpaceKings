@@ -14,8 +14,8 @@ const CharactersSchema = new Schema({
     initiative: Number,
     dodge: Number,
     drive: Number,
-    skills: [String],
-    ultimates: [String],
+    skills: [{}],
+    ultimates: [{}],
 
 })
 
