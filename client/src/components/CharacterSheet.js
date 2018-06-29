@@ -227,6 +227,10 @@ class CharacterSheet extends Component {
 
     render() {
         const character = this.state.character
+
+        if (!character._id) {
+            return 'loading'
+        }
         console.log(character.name)
         return (
             <div>
@@ -235,6 +239,11 @@ class CharacterSheet extends Component {
                         <div className="editButton"> <button onClick={this.editMode}>Edit Character</button></div>
                         {this.state.editMode
                             ?
+                            /* 
+               ====================================================
+               Form- new character/edit character
+               =====================================================
+               */
                             <form action="">
                                 <div>
                                     <label for="name">Character Name</label>
@@ -363,7 +372,14 @@ class CharacterSheet extends Component {
                                     onChange={(event) => this.handleChange(event)}
                                     onBlur={() => this.updateChar(character)}
                                 />
+
+                                <input type="button"/>
                             </form>
+                            /* 
+               ====================================================
+               Form- new character/edit character
+               =====================================================
+               */
                             :
                             <div>
                                 <div className="characterInfo">
@@ -419,11 +435,19 @@ class CharacterSheet extends Component {
                                                     <div><h1>practices</h1></div>
                                                     <div className="practices">
                                                         <div>
-                                                            <div> <h3>1:skill</h3></div>
+                                                            {console.log(character.skills)}
+                                                            {character.skills.map((skill, i) => {
+                                                                return (
+                                                                    <div key={i} >
+                                                                        <h3>{skill}</h3>
+                                                                    </div>
+                                                                )
+                                                            })}
+                                                            {/* <div> <h3>1:skill</h3></div>
                                                             <br />
                                                             <div><h3>2:skill</h3></div>
                                                             <br />
-                                                            <div><h3>3:skill</h3></div>
+                                                            <div><h3>3:skill</h3></div> */}
                                                         </div>
 
                                                         <div>

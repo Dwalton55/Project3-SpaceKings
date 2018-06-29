@@ -19,6 +19,120 @@ class NewCharacter extends Component {
         initiative: 1,
         dodge: 1,
         drive: 1,
+        atheletics: {
+            name: "atheletics",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        biology: {
+            name: "biology",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        computers: {
+            name: "computers",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        empathy: {
+            name: "empathy",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        engineering: {
+            name: "engineering",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        explosives: {
+            name: "explosives",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        firearms: {
+            name: "firearms",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        investigation: {
+            name: "investigation",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        law: {
+            name: "law",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        lying: {
+            name: "lying",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        melee: {
+            name: "melee",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        perform: {
+            name: "perform",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        pioleting: {
+            name: "pioleting",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        persuasion: {
+            name: "persuasion",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        sneaking: {
+            name: "sneaking",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        spacewise: {
+            name: "spacewise",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        survival: {
+            name: "survival",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        telekinese: {
+            name: "telekinese",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
+        telepathy: {
+            name: "telepathy",
+            practice: false,
+            mastery: false,
+            neither: false
+        },
 
         // pass down an individual game
         //create a new character
@@ -28,7 +142,7 @@ class NewCharacter extends Component {
         const gameId = this.props.match.params.gameId
         axios.get(`/api/games/${gameId}`).then((res) => {
             this.setState({
-                game: res.data.game
+                game: res.data.game,
             })
             console.log(res.data)
         })
@@ -82,6 +196,9 @@ class NewCharacter extends Component {
             newState['drive'] = Number(this.witHolder + this.presenceholder)
             // newState['initiative'] = userInput + this.state.agility
         }
+
+        if(userInput === "mastery")
+        console.log(userInput)
         newState[inputToTarget] = userInput
         this.setState(newState)
     }
@@ -99,6 +216,27 @@ class NewCharacter extends Component {
     //==============================
 
     render() {
+        const skillOptions = [
+            this.state.atheletics,
+            this.state.biology,
+            this.state.computers,
+            this.state.empathy,
+            this.state.engineering,
+            this.state.explosives,
+            this.state.firearms,
+            this.state.investigation,
+            this.state.law,
+            this.state.lying,
+            this.state.melee,
+            this.state.perform,
+            this.state.pioleting,
+            this.state.persuasion,
+            this.state.sneaking,
+            this.state.spacewise,
+            this.state.survival,
+            this.state.telekinese,
+            this.state.telepathy
+        ]
         return (
             <div>
                 <h1>Working in NewCharacter</h1>
@@ -215,6 +353,27 @@ class NewCharacter extends Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br />
+                    {skillOptions.map((skill) => {
+                        return (
+                            <label
+                            for={skill.name}>
+                            {skill.name}
+                            <br/>
+                            <select
+                            name={skill.name}
+                            id={skill.name}
+                            onChange={(event) => this.handleChange(event)}>
+                                <option value={skill.mastery}>Mastery</option>
+                                <option value={skill.practice}>Practice</option>
+                                <option value={skill.neither}>Neither</option>
+
+                            </select>
+                            </label>
+                        )
+                    })}
+                    
+
+
                     <button type="submit">Submit</button>
                 </form>
             </div>
