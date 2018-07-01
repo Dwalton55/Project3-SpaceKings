@@ -144,7 +144,6 @@ class NewCharacter extends Component {
             this.setState({
                 game: res.data.game,
             })
-            console.log(res.data)
         })
     }
 
@@ -168,38 +167,106 @@ class NewCharacter extends Component {
         const userInput = event.target.value
         const newState = { ...this.state }
 
-
-        if (inputToTarget === 'brawn') {
-            newState['health'] = userInput * 3
+        switch (inputToTarget) {
+            case 'brawn':
+                newState['health'] = userInput * 3
+                newState[inputToTarget] = userInput
+                break;
+            case 'presence':
+                this.presenceholder = Number(userInput)
+                console.log(this.presenceholder)
+                newState['initiative'] = Number(this.presenceholder + this.agilityHolder)
+                newState['drive'] = Number(this.witHolder + this.presenceholder)
+                newState[inputToTarget] = userInput
+                break;
+            case 'agility':
+                this.agilityHolder = Number(userInput)
+                console.log(this.agilityHolder)
+                newState['initiative'] = Number(this.presenceholder + this.agilityHolder)
+                newState['dodge'] = Number(this.witHolder + this.agilityHolder)
+                newState[inputToTarget] = userInput
+                break;
+            case 'wit':
+                this.witHolder = Number(userInput)
+                console.log(this.witHolder)
+                newState['dodge'] = Number(this.witHolder + this.agilityHolder)
+                newState['drive'] = Number(this.witHolder + this.presenceholder)
+                newState[inputToTarget] = userInput
+                break;
+            case this.state.atheletics.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const atheletics = {
+                        name: 'atheletics',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.atheletics = atheletics
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const atheletics = {
+                        name: 'atheletics',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.atheletics = atheletics
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const atheletics = {
+                        name: 'atheletics',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.atheletics = atheletics
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+            case this.state.biology.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const biology = {
+                        name: 'biology',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.biology = biology
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const biology = {
+                        name: 'biology',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.biology = biology
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const biology = {
+                        name: 'biology',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.biology = biology
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+            default:
+                // console.log("Final Conditional")
+                newState[inputToTarget] = userInput
+                break;
         }
 
-        if (inputToTarget === 'presence') {
-            this.presenceholder = Number(userInput)
-            console.log(this.presenceholder)
-            newState['initiative'] = Number(this.presenceholder + this.agilityHolder)
-            newState['drive'] = Number(this.witHolder + this.presenceholder)
-            // newState['initiative'] = userInput + this.state.agility
-        }
-
-        if (inputToTarget === 'agility') {
-            this.agilityHolder = Number(userInput)
-            console.log(this.agilityHolder)
-            newState['initiative'] = Number(this.presenceholder + this.agilityHolder)
-            newState['dodge'] = Number(this.witHolder + this.agilityHolder)
-            // newState['initiative'] = userInput + this.state.agility
-        }
-
-        if (inputToTarget === 'wit') {
-            this.witHolder = Number(userInput)
-            console.log(this.witHolder)
-            newState['dodge'] = Number(this.witHolder + this.agilityHolder)
-            newState['drive'] = Number(this.witHolder + this.presenceholder)
-            // newState['initiative'] = userInput + this.state.agility
-        }
-
-        if(userInput === "mastery")
-        console.log(userInput)
-        newState[inputToTarget] = userInput
+        // console.log("user, input", userInput, inputToTarget)
+        console.log("New State", newState)
         this.setState(newState)
     }
 
@@ -242,10 +309,7 @@ class NewCharacter extends Component {
                 <h1>Working in NewCharacter</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label for="name">Character Name:</label>
-                    <input
-                        id="name"
-                        type="text"
-                        name="name"
+                    <input id="name" type="text" name="name"
                         value={this.state.name}
                         onChange={(event) => this.handleChange(event)}
                     />
@@ -356,22 +420,22 @@ class NewCharacter extends Component {
                     {skillOptions.map((skill) => {
                         return (
                             <label
-                            for={skill.name}>
-                            {skill.name}
-                            <br/>
-                            <select
-                            name={skill.name}
-                            id={skill.name}
-                            onChange={(event) => this.handleChange(event)}>
-                                <option value={skill.mastery}>Mastery</option>
-                                <option value={skill.practice}>Practice</option>
-                                <option value={skill.neither}>Neither</option>
-
-                            </select>
+                                for={skill.name}>
+                                {skill.name}
+                                <br />
+                                <select
+                                    value={skill.name}
+                                    name={skill.name}
+                                    id={skill.name}
+                                    onChange={(event) => this.handleChange(event)}>
+                                    <option value="Mastery">Mastery</option>
+                                    <option value="Practice">Practice</option>
+                                    <option value="Neither">Neither</option>
+                                </select>
                             </label>
                         )
                     })}
-                    
+
 
 
                     <button type="submit">Submit</button>
