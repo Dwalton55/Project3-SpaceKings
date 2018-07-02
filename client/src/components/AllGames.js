@@ -1,6 +1,40 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const Page = styled.div`
+div{
+    display: grid;
+    justify-content: center;
+    align-items: center
+
+}
+
+.game{ 
+    
+}
+
+.gameArea{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: grey;
+    height:50vh;
+    width:90vh;
+    /* make into a robot head? */
+}
+
+form{
+    width: 1005px;
+    height: 122px;
+    display: grid;
+}
+form input{
+    heigh: 75%;
+}
+`
+
+
 class AllGames extends Component {
 
     //==============================
@@ -46,46 +80,56 @@ class AllGames extends Component {
         console.log(this.state.newForm)
     }
     //==============toggle edit=====
-    
+
     render() {
         return (
-            <div> {/* wrapper start*/}
+            <Page>
+                <div> {/* wrapper start*/}
 
-                <button onClick={this.showForm}>Start a new Story</button>
-                {this.state.newForm
-                    ?
-                    <div>
-                        {/* creates a form and says that once submitted handleSubmit should run */}
-                        <form onSubmit={this.handleSubmit} id="newgame">
-                            <input
-                                placeholder="Title"
-                                type="text"
-                                name="title"
-                                // sets value to be the State user name.
-                                value={this.state.title}
-                                // when value is changed it runs handle change
-                                onChange={this.handleChange}
-                            />
-                            {/* activates the handle Submit */}
-                            <button type="submit">Submit</button>
-                        </form>
+                    <button onClick={this.showForm}>Start a new Story</button>
+                    {this.state.newForm
+                        ?
+                        <div className="game">
+                            {/* creates a form and says that once submitted handleSubmit should run */}
+                            <form onSubmit={this.handleSubmit} id="newgame">
+                                <input
+                                    placeholder="Title"
+                                    type="text"
+                                    name="title"
+                                    // sets value to be the State user name.
+                                    value={this.state.title}
+                                    // when value is changed it runs handle change
+                                    onChange={this.handleChange}
+                                />
+                                <textarea rows="7" cols="50" name="description" placeholder="description here" onChange={this.handleChange} value={this.state.description}></textarea>
+                                {/* activates the handle Submit */}
+                                <button type="submit">Submit</button>
+                            </form>
+                           
 
-                        <textarea rows="7" cols="50" name="description" placeholder="description here" onChange={this.handleChange} value={this.state.description}></textarea>
-                    </div>
-                    : null}
-                <br />
-                <br />
-                <br />
-                {this.props.games.map((game) => { /* map start*/
-                    return (
-                        <div key={game._id}>
-                            <Link to={`/games/${game._id}`}>{game.title}</Link>
-                            <p>{game.description}</p>
+                            
                         </div>
-                    )
-                })} {/* map end*/}
-                {/* wrapper end*/}
-            </div>
+                        : null}
+                    <br />
+                    <br />
+                    <br />
+                    <div className="gameArea">
+                        {this.props.games.map((game) => { /* map start*/
+                            return (
+                                <div>
+                                    <div key={game._id} className="game">
+                                        <Link to={`/games/${game._id}`}>{game.title}</Link>
+                                        <p>{game.description}</p>
+
+                                    </div>
+                                    <br />
+                                </div>
+                            )
+                        })} 
+
+                    </div>
+                </div>
+            </Page>
         );
     }
 }

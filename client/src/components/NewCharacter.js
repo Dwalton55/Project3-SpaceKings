@@ -2,7 +2,23 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 
-const skillStyle = styled.div`
+const Style = styled.div`
+div{
+
+display: grid;
+justify-content:center;
+align-items:center;
+
+}
+
+.skills{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    
+}
+
+
 
 `
 
@@ -871,6 +887,7 @@ class NewCharacter extends Component {
             this.state.telepathy
         ]
         return (
+            <Style>
             <div>
                 <h1>Working in NewCharacter</h1>
                 <form onSubmit={this.handleSubmit}>
@@ -986,6 +1003,7 @@ class NewCharacter extends Component {
                     <div className ="skills">
                     {skillOptions.map((skill) => {
                         return (
+                            <div>
                             <label
                                 for={skill.name}>
                                 {skill.name}
@@ -1000,6 +1018,7 @@ class NewCharacter extends Component {
                                     <option value="Neither">Neither</option>
                                 </select>
                             </label>
+                            </div>
                         )
                     })}
                     </div>
@@ -1009,6 +1028,7 @@ class NewCharacter extends Component {
                     <button type="submit">Submit</button>
                 </form>
             </div>
+            </Style>
         );
     }
 }

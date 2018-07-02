@@ -1,6 +1,48 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
+import styled from 'styled-components'
+
+
+const Page = styled.div`
+ .wrapper{
+     background:red;
+     height: 60vh;
+ }
+
+div{
+    display:grid;
+    justify-content: center;
+    align-items:center;
+}
+
+.characterDiv{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-gap:30px;
+    width: 100vw;
+}
+
+.characterDiv div{
+
+    background: grey;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    background: blue;
+}
+
+a{
+    text-decoration:none;
+    color: limegreen;
+    font-size:50px;
+}
+a.button{
+    
+}
+`
 
 class ShowGame extends Component {
     //==============================
@@ -117,9 +159,11 @@ class ShowGame extends Component {
             return <Redirect push to={`/games`} />
         }
         return (
-            <div>
+            <Page>
+            <div className="wrapper">
                 <button onClick={this.showForm}>Edit Game</button>
                 {this.state.editForm ? 
+                <div>
                 <form id="UpdateForm">
                     <input
                         type="text"
@@ -136,14 +180,16 @@ class ShowGame extends Component {
                         onChange={(event) => this.handleChange(event, this.state.game)}
                         onBlur={() => this.updateGame(this.state.game)}></textarea>
                 </form>
+                <button onClick={() => this.deleteGame(this.props.match.params.gameId)}> Delete this game</button>
+                </div>
                 :
-                    <div>
+                    <div className="header">
                 <h1> {this.state.game.title}</h1>
                 <p> {this.state.game.description} </p>
                 </div> }
-                <button onClick={() => this.deleteGame(this.props.match.params.gameId)}> Delete this game</button>
+               
 
-
+                    <div className="characterDiv">
                 {this.state.characters.map((character) => {
                     return (
                         <div key={character._id}>
@@ -153,8 +199,12 @@ class ShowGame extends Component {
                         </div>
                     )
                 })}
-                    <Link to={`/games/${this.state.game._id}/new`}>Create a new character</Link>
+                </div>
+                <div>
+                    <Link to={`/games/${this.state.game._id}/new`}><button>Create a new character</button></Link>
+                </div>
             </div>
+            </Page>
         );
     }
 }

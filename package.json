@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "concurrently \"nodemon bin/www\" \"cd ./client  && npm start \" "
+    "dev": "concurrently \"nodemon bin/www\" \"cd ./client  && npm start \" ",
+    "postinstall": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "axios": "^0.18.0",
