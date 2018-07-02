@@ -10,7 +10,8 @@ class ShowGame extends Component {
     state = {
         game: {},
         characters: [],
-        redirect: false
+        redirect: false,
+        editForm: false
     }
     getGame = () => {
         const gameId = this.props.match.params.gameId
@@ -101,13 +102,24 @@ class ShowGame extends Component {
     //=========================================
     //         Delete area
     //=========================================
-
+    // ========================================
+    // switch form
+    // ========================================    
+    showForm = () => {
+        this.state.editForm ? this.setState({ editForm: false }) : this.setState({ editForm: true })
+        console.log(this.state.editForm)
+    }
+    // ========================================
+    // switch form
+    // ======================================== 
     render() {
         if (this.state.redirect) {
             return <Redirect push to={`/games`} />
         }
         return (
             <div>
+                <button onClick={this.showForm}>Edit Game</button>
+                {this.state.editForm ? 
                 <form id="UpdateForm">
                     <input
                         type="text"
@@ -124,6 +136,11 @@ class ShowGame extends Component {
                         onChange={(event) => this.handleChange(event, this.state.game)}
                         onBlur={() => this.updateGame(this.state.game)}></textarea>
                 </form>
+                :
+                    <div>
+                <h1> {this.state.game.title}</h1>
+                <p> {this.state.game.description} </p>
+                </div> }
                 <button onClick={() => this.deleteGame(this.props.match.params.gameId)}> Delete this game</button>
 
 

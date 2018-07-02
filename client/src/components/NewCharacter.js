@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const skillStyle = styled.div`
+
+`
 
 class NewCharacter extends Component {
     //==============================
@@ -259,6 +264,567 @@ class NewCharacter extends Component {
                     console.log('ran the function pt 3', newState)
                 }
                 break;
+            case this.state.computers.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const computers = {
+                        name: 'computers',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.computers = computers
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const computers = {
+                        name: 'computers',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.computers = computers
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const computers = {
+                        name: 'computers',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.computers = computers
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+            case this.state.empathy.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const empathy = {
+                        name: 'empathy',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.empathy = empathy
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const empathy = {
+                        name: 'empathy',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.empathy = empathy
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const empathy = {
+                        name: 'empathy',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.empathy = empathy
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+            case this.state.engineering.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const engineering = {
+                        name: 'engineering',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.engineering = engineering
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const engineering = {
+                        name: 'engineering',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.engineering = engineering
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const engineering = {
+                        name: 'engineering',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.engineering = engineering
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+            case this.state.explosives.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const explosives = {
+                        name: 'explosives',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.explosives = explosives
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const explosives = {
+                        name: 'explosives',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.explosives = explosives
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const explosives = {
+                        name: 'explosives',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.explosives = explosives
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+            case this.state.firearms.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const firearms = {
+                        name: 'firearms',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.firearms = firearms
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const firearms = {
+                        name: 'firearms',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.firearms = firearms
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const firearms = {
+                        name: 'firearms',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.firearms = firearms
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+            case this.state.investigation.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const investigation = {
+                        name: 'investigation',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.investigation = investigation
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const investigation = {
+                        name: 'investigation',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.investigation = investigation
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const investigation = {
+                        name: 'investigation',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.investigation = investigation
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+            case this.state.law.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const law = {
+                        name: 'law',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.law = law
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const law = {
+                        name: 'law',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.law = law
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const law = {
+                        name: 'law',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.law = law
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+                case this.state.lying.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const lying = {
+                        name: 'lying',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.lying = lying
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const lying = {
+                        name: 'lying',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.lying = lying
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const lying = {
+                        name: 'lying',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.lying = lying
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+                case this.state.melee.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const melee = {
+                        name: 'melee',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.melee = melee
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const melee = {
+                        name: 'melee',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.melee = melee
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const melee = {
+                        name: 'melee',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.melee = melee
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+                case this.state.perform.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const perform = {
+                        name: 'perform',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.perform = perform
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const perform = {
+                        name: 'perform',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.perform = perform
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const perform = {
+                        name: 'perform',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.perform = perform
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+                case this.state.pioleting.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const pioleting = {
+                        name: 'pioleting',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.pioleting = pioleting
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const pioleting = {
+                        name: 'pioleting',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.pioleting = pioleting
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const pioleting = {
+                        name: 'pioleting',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.pioleting = pioleting
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+                case this.state.persuasion.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const persuasion = {
+                        name: 'persuasion',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.persuasion = persuasion
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const persuasion = {
+                        name: 'persuasion',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.persuasion = persuasion
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const persuasion = {
+                        name: 'persuasion',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.persuasion = persuasion
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+                case this.state.sneaking.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const sneaking = {
+                        name: 'sneaking',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.sneaking = sneaking
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const sneaking = {
+                        name: 'sneaking',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.sneaking = sneaking
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const sneaking = {
+                        name: 'sneaking',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.sneaking = sneaking
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+                case this.state.spacewise.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const spacewise = {
+                        name: 'spacewise',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.spacewise = spacewise
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const spacewise = {
+                        name: 'spacewise',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.spacewise = spacewise
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const spacewise = {
+                        name: 'spacewise',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.spacewise = spacewise
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+                case this.state.survival.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const survival = {
+                        name: 'survival',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.survival = survival
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const survival = {
+                        name: 'survival',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.survival = survival
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const survival = {
+                        name: 'survival',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.survival = survival
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+                case this.state.telekinese.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const telekinese = {
+                        name: 'telekinese',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.telekinese = telekinese
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const telekinese = {
+                        name: 'telekinese',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.telekinese = telekinese
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const telekinese = {
+                        name: 'telekinese',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.telekinese = telekinese
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
+                case this.state.telepathy.name:
+                if (userInput == "Mastery") {
+                    console.log('hit the function')
+                    const telepathy = {
+                        name: 'telepathy',
+                        mastery: true,
+                        practice: false,
+                        neither: false
+                    }
+                    newState.telepathy = telepathy
+                    console.log('ran the function', newState)
+                } else if (userInput == "Practice") {
+                    console.log('hit the function')
+                    const telepathy = {
+                        name: 'telepathy',
+                        mastery: false,
+                        practice: true,
+                        neither: false
+                    }
+                    newState.telepathy = telepathy
+                    console.log('ran the function pt 2', newState)
+                } else if (userInput == "Neither") {
+                    console.log('hit the function')
+                    const telepathy = {
+                        name: 'telepathy',
+                        mastery: false,
+                        practice: false,
+                        neither: true
+                    }
+                    newState.telepathy = telepathy
+                    console.log('ran the function pt 3', newState)
+                }
+                break;
             default:
                 // console.log("Final Conditional")
                 newState[inputToTarget] = userInput
@@ -417,6 +983,7 @@ class NewCharacter extends Component {
                         onChange={(event) => this.handleChange(event)}
                     />
                     <br />
+                    <div className ="skills">
                     {skillOptions.map((skill) => {
                         return (
                             <label
@@ -435,6 +1002,7 @@ class NewCharacter extends Component {
                             </label>
                         )
                     })}
+                    </div>
 
 
 
