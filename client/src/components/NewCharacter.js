@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import { Link, Redirect } from 'react-router-dom'
 
 const Style = styled.div`
 div{
@@ -1027,6 +1028,7 @@ class NewCharacter extends Component {
 
                     <button type="submit">Submit</button>
                 </form>
+                <Link to={`/games/${this.props.match.params.gameId}/`}><button>Cancel</button></Link>
             </div>
             </Style>
         );

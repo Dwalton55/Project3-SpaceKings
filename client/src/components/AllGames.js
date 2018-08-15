@@ -1,38 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import './AllGames.css'
 
-const Page = styled.div`
-div{
-    display: grid;
-    justify-content: center;
-    align-items: center
-
-}
-
-.game{ 
-    
-}
-
-.gameArea{
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
-    background: grey;
-    height:50vh;
-    width:90vh;
-    /* make into a robot head? */
-}
-
-form{
-    width: 1005px;
-    height: 122px;
-    display: grid;
-}
-form input{
-    heigh: 75%;
-}
-`
 
 
 class AllGames extends Component {
@@ -83,13 +54,14 @@ class AllGames extends Component {
 
     render() {
         return (
-            <Page>
-                <div> {/* wrapper start*/}
+            <div>
+                <div className = 'allgameswrapper'> {/* wrapper start*/}
 
-                    <button onClick={this.showForm}>Start a new Story</button>
+                    <div className='imageholder'></div>
+
                     {this.state.newForm
                         ?
-                        <div className="game">
+                        <div className='formholder'> 
                             {/* creates a form and says that once submitted handleSubmit should run */}
                             <form onSubmit={this.handleSubmit} id="newgame">
                                 <input
@@ -118,7 +90,7 @@ class AllGames extends Component {
                             return (
                                 <div>
                                     <div key={game._id} className="game">
-                                        <Link to={`/games/${game._id}`}>{game.title}</Link>
+                                        <Link to={`/games/${game._id}`}><h1>{game.title}</h1></Link>
                                         <p>{game.description}</p>
 
                                     </div>
@@ -129,7 +101,8 @@ class AllGames extends Component {
 
                     </div>
                 </div>
-            </Page>
+                <button  className='allgamesbutton' onClick={this.showForm}>Start a new Story</button>
+            </div>
         );
     }
 }

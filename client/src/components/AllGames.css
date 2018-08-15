@@ -1,0 +1,65 @@
+.allgameswrapper{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   
+}
+
+.allgameswrapper button{
+width: 30%;
+justify-self: center;
+margin-top: 20px;
+grid-row: auto;
+}
+
+.game{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background: lightgrey;
+    box-shadow: 0px 40px 34px -40px rgba(0, 0, 0, 0.3), 0px 3px 40px 2px rgba(0, 0, 0, 0.2);
+}
+
+.game:hover {
+    transform: scale(1.15);
+	box-shadow: 0px 57px 34px -40px rgba(0, 0, 0, 0.3), 0px 3px 40px 2px rgba(0, 0, 0, 0.2);
+}
+.game a{
+    text-decoration: none;
+    color: blue;
+}
+
+.gameArea{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+    grid-column: 2;
+    height:50vh;
+    width:90vh;
+    /* make into a robot head? */
+}
+
+.formholder{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+form{
+    width: 50vh;
+    height: 100%;
+    display: grid;
+}
+form input{
+    height: 75%;
+}
+
+.allgamesbutton{
+    width:100vw;
+    height:10vh;
+    text-align: center;
+    font-size: 4vh;
+    margin-top: 150px
+}

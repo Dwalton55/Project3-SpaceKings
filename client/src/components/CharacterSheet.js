@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+
 
 const CharacterForm = styled.div`
   .wrapper{
@@ -231,10 +233,12 @@ class CharacterSheet extends Component {
         if (!character._id) {
             return 'loading'
         }
+
         console.log(character.name)
         return (
             <div>
                 <CharacterForm>
+                <Link to={`/games/${this.props.match.params.gameId}/`}><button>Return to game</button></Link>
                     <div className="wrapper">
                         <div className="editButton"> <button onClick={this.editMode}>Edit Character</button></div>
                         {this.state.editMode

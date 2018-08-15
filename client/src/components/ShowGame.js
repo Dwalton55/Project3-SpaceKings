@@ -5,9 +5,9 @@ import styled from 'styled-components'
 
 
 const Page = styled.div`
- .wrapper{
-     background:red;
-     height: 60vh;
+ .showwrapper{
+    
+     height: 50vh;
  }
 
 div{
@@ -20,27 +20,52 @@ div{
     display:grid;
     grid-template-columns:1fr 1fr;
     grid-gap:30px;
-    width: 100vw;
+    width: 100%;
+    justify-content: center;
+    align-items:center;
 }
 
 .characterDiv div{
-
-    background: grey;
+    display:grid;
+    background: lightgrey;
     justify-content: center;
     align-items: center;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
-.header{
-    background: blue;
+.characterDiv div button{
+    justify-self:center;
+    width: 50%;
+}
+
+.characterDiv div h1{
+    justify-self:center;
+    padding:10px;
+    width: 50%;
+}
+
+.showheader{
+    text-align: center;
+    width: 100%;
+    font-size: 4.5vh;
+}
+
+.showheader p{
+    font-size:3.5;
 }
 
 a{
     text-decoration:none;
     color: limegreen;
     font-size:50px;
+    text-align: center;
 }
 a.button{
     
+}
+
+h1{
+    text-align: center;
 }
 `
 
@@ -160,9 +185,9 @@ class ShowGame extends Component {
         }
         return (
             <Page>
-            <div className="wrapper">
-                <button onClick={this.showForm}>Edit Game</button>
-                {this.state.editForm ? 
+            <div className="showwrapper">
+                
+                {this.state.editForm ?
                 <div>
                 <form id="UpdateForm">
                     <input
@@ -183,7 +208,7 @@ class ShowGame extends Component {
                 <button onClick={() => this.deleteGame(this.props.match.params.gameId)}> Delete this game</button>
                 </div>
                 :
-                    <div className="header">
+                    <div className="showheader">
                 <h1> {this.state.game.title}</h1>
                 <p> {this.state.game.description} </p>
                 </div> }
@@ -193,7 +218,7 @@ class ShowGame extends Component {
                 {this.state.characters.map((character) => {
                     return (
                         <div key={character._id}>
-                            <h1> <Link to={`/games/${this.state.game._id}/characters/${character._id}`}>{character.name}</Link></h1>
+                             <Link to={`/games/${this.state.game._id}/characters/${character._id}`}>{character.name}</Link>
                             <h1>{character.concept}</h1>
                             <button onClick={() => this.deleteChar(character._id)}>Delete this character</button>
                         </div>
@@ -202,7 +227,9 @@ class ShowGame extends Component {
                 </div>
                 <div>
                     <Link to={`/games/${this.state.game._id}/new`}><button>Create a new character</button></Link>
+                    <Link to={`/games/`}><button>Back to select</button></Link>
                 </div>
+                <button onClick={this.showForm}>Edit Game</button>
             </div>
             </Page>
         );
